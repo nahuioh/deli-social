@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a DELI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Barlow', sans-serif;
+            margin: 0 ;
+            padding: 0 10%;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding-bottom: 30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header {
+            background-color: #ff5722;
+            padding: 20px;
+        }
+        .header img {
+            max-width: 150px;
+            height: 19px;
+        }
+        h1 {
+            color: #ff5722;
+            font-size: 28px;
+        }
+        p {
+            color: #555555;
+            font-size: 16px;
+        }
+        a.button {
+          display: inline-block;
+          background-color: #ff5722;
+          color: white;
+          padding: 11px 50px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-size: 14px;
+          margin: 20px 0;
+        }
+        a.button:hover {
+            background-color: #e04d2d;
+        }
+        .footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            color: #999999;
+            font-size: 12px;
+            text-align: left;
+            margin: 0 auto;
+            
+        }
+        .footer img {
+          height: 17px;
+          text-align: left;
+          padding-bottom: 10px;
+          width: fit-content;
+          padding-left: 15px;
+        }
+        .footer p {
+          text-align: center;
+          font-size: 11px;
+        }
+        .icon-arrow {
+            background: url('https://deli.com.br/assets/img/icons/arrow-723b3d16.svg') no-repeat center center;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background-size: contain;
+        }
+        .text-with-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; 
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .title-newsletter {
+          font-size: 40px;
+        }
+        .subtitle-newsletter {
+            font-size: 18px;
+            color: #000000;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+            .container {
+                margin: 0; 
+                padding: 0 0 20px 0;
+            }
+            .header img {
+                max-width: 120px;
+            }
+            h1 {
+                font-size: 16px;
+            }
+            p {
+                font-size: 10px;
+            }
+            a.button {
+                padding: 10px 30px;
+                font-size: 12px;
+                margin: 10px 0;
+            }
+            .footer {
+                padding: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer img {
+                margin-bottom: 10px;
+            }
+            .footer p {
+                font-size: 9px;
+            }
+            .subtitle-newsletter {
+                font-size: 12px;
+                color: #000000;
+            }
+            .text-with-icon {
+                gap: 4px;
+            }
+            .icon-arrow {
+                width: 10px;
+            }
+            .title-newsletter {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://deli.com.br/assets/img/deli_logo_light-1482dbe2.svg" alt="DELI Logo">
+        </div>
+        <h1 class="title-newsletter">¡Bienvenido a deli<br>'{{user_name}}'!</h1>
+        <p class="subtitle-newsletter">Muchas gracias por unirte a nuestra comunidad.</p>
+        <div class="text-with-icon">
+            <div class="icon-arrow"></div>
+            <p>Haz click en el siguiente botón para confirmar tu registro:</p>
+        </div>
+        <a href="https://deli.com.br/pt-br/" class="button">INGRESAR</a>
+        <p><strong>¡Esperamos que lo disfrutes tanto como nosotros!</strong></p>
+    </div>
+    <div class="footer">
+        <img src="https://deli.com.br/assets/img/deli_logo_color-666b50b0.svg" alt="DELI Logo footer">
+        <p>Si necesitas ayuda no dudes en dirigirte a nuestra área de soporte o contactarnos a través <strong>del chat del sistema</strong>.</p>
+    </div>
+</body>
+</html>

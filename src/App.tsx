@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// src/pages/App.tsx
+import React from "react";
+import SignUp from "./pages/Signup";
+import Welcome  from "./pages/Welcome";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+       <Route path="/" element={<Navigate to="/signup" replace />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/welcome" element={<Welcome />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
