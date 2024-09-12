@@ -20,7 +20,7 @@ export const registerUser = async (formData: FormData) => {
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.message || 'Error en el registro');
+    throw new Error(errorData.message || errorData.errors || 'Error en el registro');
   }
 
   return response.json();
