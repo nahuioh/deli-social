@@ -5,7 +5,7 @@ import { Select } from './ComponentStyles'; // Asegúrate de que la ruta sea cor
 const CountrySelect: React.FC<CountrySelectProps> = ({ onCountryChange }) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [selectedCountryValue, setSelectedCountryValue] = useState<string>(''); // Mantenemos el value
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     // Llamada a la API para obtener la lista de países
     const fetchCountries = async () => {

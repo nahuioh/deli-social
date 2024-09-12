@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { InputProps } from "../types/types";
 
 export const Select = styled.select`

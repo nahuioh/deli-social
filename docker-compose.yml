@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3004:3004"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    command: /bin/sh -c "npm install && npm start"

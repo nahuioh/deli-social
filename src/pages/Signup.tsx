@@ -5,7 +5,9 @@ import { Header, Container, Button, Footer, Form, Input, ErrorLabel } from "../c
 import { FormData } from '../types/types';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from "../services/Api";
-import  "./Signup.css";
+import { toast } from 'react-toastify';
+import "./Signup.css";
+
 const isEmailValid = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -121,16 +123,31 @@ const SignUp: React.FC = () => {
             try {
                 const response = await registerUser(formData);
                 if (response && response.token) {
-                    // Si la respuesta es exitosa, redirigimos a la página de bienvenida
-                    navigate('/welcome', { state: { username: formData.nombreUsuario } });
+                    toast.success('¡Registro exitoso! Redirigiendo a la página de bienvenida...', {
+                        position: 'top-right', // Usa un valor de cadena
+                        autoClose: 3000,       // Cierra automáticamente después de 3 segundos
+                    });
+
+                    // Redirigir tras 2 segundos
+                    setTimeout(() => {
+                        navigate('/welcome', { state: { username: formData.nombreUsuario } });
+                    }, 2000);
                 } else {
                     // Si la respuesta no es ok, manejamos el error
-                    console.error('Registration failed:', response.statusText);
-                    alert('Error during registration. Please try again.');
+                    toast.error('Error durante el registro. Intenta nuevamente.', {
+                        position: 'top-right',
+                    });
                 }
             } catch (error) {
-                console.error('Error during registration:', error);
-                // Aquí puedes manejar el error, mostrar un mensaje en la UI, etc.
+                if (error instanceof Error) {
+                    toast.error(error.message, {
+                        position: 'top-right',
+                    });
+                } else {
+                    toast.error('Unknown error occurred', {
+                        position: 'top-right',
+                    });
+                }
             }
         }
     };
@@ -143,7 +160,7 @@ const SignUp: React.FC = () => {
 
             <Container>
                 <Form onSubmit={handleSubmit}>
-                {emailError && <ErrorLabel>{emailError}</ErrorLabel>}
+                    {emailError && <ErrorLabel>{emailError}</ErrorLabel>}
                     <Input
                         type="email"
                         name="email"
@@ -180,7 +197,7 @@ const SignUp: React.FC = () => {
                     />
                     <CountrySelect
                         onCountryChange={handleCountryChange}
-                        
+
                     />
                     {passwordError && <ErrorLabel>{passwordError}</ErrorLabel>}
                     <Input

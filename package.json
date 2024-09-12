@@ -1,7 +1,7 @@
 {
   "name": "deli-social",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +16,7 @@
     "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.8.0",
+    "react-toastify": "^10.0.5",
     "styled-components": "^6.1.13",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -43,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "eslint-plugin-jest": "^28.8.3"
   }
 }
