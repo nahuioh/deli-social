@@ -122,8 +122,8 @@ const SignUp: React.FC = () => {
                 const response = await registerUser(formData);
                 if (response && response.token) {
                     toast.success('¡Registro exitoso! Redirigiendo a la página de bienvenida...', {
-                        position: 'top-right', // Usa un valor de cadena
-                        autoClose: 3000,       // Cierra automáticamente después de 3 segundos
+                        position: 'top-right',
+                        autoClose: 3000,
                     });
 
                     // Redirigir tras 2 segundos

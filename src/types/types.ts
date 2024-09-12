@@ -18,5 +18,5 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 //Country select
 
 export interface CountrySelectProps {
-    onCountryChange: (countryName: string) => void; // Ahora recibe solo el nombre del país
+    onCountryChange: (countryName: string) => void;
 }

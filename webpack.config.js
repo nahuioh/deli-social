@@ -1,3 +1,5 @@
+const DotenvWebpackPlugin = require('dotenv-webpack');
+
 module.exports = {
     // Otra configuración
     devServer: {
@@ -13,5 +15,8 @@ module.exports = {
         return middlewares;
       },
     },
+    plugins: [
+      new DotenvWebpackPlugin()
+    ]
   };
   
