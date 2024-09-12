@@ -13,8 +13,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ onCountryChange }) => {
         const response = await fetch("https://valid.layercode.workers.dev/list/countries?format=select&flags=false");
         const data = await response.json();
         setCountries(data.countries);
-        
-        // Selecciona el país por defecto si es proporcionado
+  
         const defaultCountry = data.countries.find((country: Country) => country.value === data.userSelectValue);
         if (defaultCountry) {
           setSelectedCountryValue(defaultCountry.value);
@@ -24,9 +23,10 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ onCountryChange }) => {
         console.error('Error fetching countries:', error);
       }
     };
-
+  
     fetchCountries();
-  }, []);
+  }, [onCountryChange]); // Añadir onCountryChange a las dependencias
+  
 
   // Manejo del cambio de selección de país
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

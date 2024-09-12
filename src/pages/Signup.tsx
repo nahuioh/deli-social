@@ -1,5 +1,5 @@
 // src/components/Registro.tsx
-import React, { useState } from "react";
+import React, { useState, useCallback} from "react";
 import CountrySelect from "../components/CountrySelect";
 import { Header, Container, Button, Footer, Form, Input, ErrorLabel } from "../components/ComponentStyles";
 import { FormData } from '../types/types';
@@ -107,14 +107,12 @@ const SignUp: React.FC = () => {
         }
     };
 
-    const handleCountryChange = (countryName: string) => {
-        console.log(countryName);
-
+    const handleCountryChange = useCallback((countryName: string) => {
         setFormData({
             ...formData,
             country: countryName, // Puedes ajustar esto para usar el código o la etiqueta según sea necesario
         });
-    };
+    }, [formData]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
