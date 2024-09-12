@@ -7,7 +7,7 @@ Things you may want to cover:
 
 * Tener instalado docker-desktop
 
-* Descargar el repositorio en github https://github.com/nahuioh/backend_ruby_deli_social
+* Descargar el repositorio en github https://github.com/nahuioh/deli-social
 
 * Ir a la carpeta del repositorio
 
