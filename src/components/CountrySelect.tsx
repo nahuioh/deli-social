@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { CountrySelectProps, Country } from '../types/types'; // Ajusta la ruta según tu estructura
-import { Select } from './ComponentStyles'; // Asegúrate de que la ruta sea correcta
+import { CountrySelectProps, Country } from '../types/types';
+import { Select } from './ComponentStyles';
 
 const CountrySelect: React.FC<CountrySelectProps> = ({ onCountryChange }) => {
   const [countries, setCountries] = useState<Country[]>([]);
-  const [selectedCountryValue, setSelectedCountryValue] = useState<string>(''); // Mantenemos el value
+  const [selectedCountryValue, setSelectedCountryValue] = useState<string>('');
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    // Llamada a la API para obtener la lista de países
     const fetchCountries = async () => {
       try {
         const response = await fetch("https://valid.layercode.workers.dev/list/countries?format=select&flags=false");
@@ -25,15 +24,15 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ onCountryChange }) => {
     };
   
     fetchCountries();
-  }, [onCountryChange]); // Añadir onCountryChange a las dependencias
+  }, [onCountryChange]);
   
 
   // Manejo del cambio de selección de país
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value;
-    setSelectedCountryValue(selectedValue); // Actualiza el estado con el value seleccionado
+    setSelectedCountryValue(selectedValue);
 
-    const country = countries.find((c) => c.value === selectedValue); // Encuentra el país correspondiente
+    const country = countries.find((c) => c.value === selectedValue);
     if (country) {
       onCountryChange(country.label); // Envía el nombre del país seleccionado al padre
     }

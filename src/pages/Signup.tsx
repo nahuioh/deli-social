@@ -108,11 +108,11 @@ const SignUp: React.FC = () => {
     };
 
     const handleCountryChange = useCallback((countryName: string) => {
-        setFormData({
-            ...formData,
-            country: countryName, // Puedes ajustar esto para usar el código o la etiqueta según sea necesario
-        });
-    }, [formData]);
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            country: countryName,
+        }));
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
